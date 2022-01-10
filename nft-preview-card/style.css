@@ -40,30 +40,19 @@ body {
     cursor: pointer;
 }
 
-#div-image {
-    
+#div-image:hover::before {
+    content: "";
+    background-color: rgba(0, 255, 255, 0.4);
+    background-image: url("images/icon-view.svg");
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: 48px;
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    border-radius: 6px;
     cursor: pointer;
 }
-
-#div-image i {
-    content: url(images/icon-view.svg);
-    display: none;
-    position: absolute;
-    top: 20px;
-    width: 50px;
-    height: 50px;
-    padding: 100px;
-    border-radius: 7px;
-    background-color: var(--cyan-color-alpha);
-}
-
-#div-image:hover i {
-    display: block;
-}
-
-#card-image:hover {
-    content: "asdasdasd    asdsad";
- }
 
 #card > h2 {
     margin: 15px 0;
