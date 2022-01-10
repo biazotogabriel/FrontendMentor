@@ -1,0 +1,151 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+
+:root {
+    --soft-blue-color: hsl(215, 51%, 70%);
+    --cyan-color: hsl(178, 100%, 50%);
+    --cyan-color-alpha: hsl(178, 100%, 50%, 0.3);
+    --dark-blue-bg-color: hsl(217, 54%, 11%);
+    --dark-blue-cd-color: hsl(216, 50%, 16%);
+    --dark-blue-ln-color: hsl(215, 32%, 27%);
+    --white-color: hsl(0, 0%, 100%);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Outfit, sans-serif;
+    font-size: 18px;
+}
+
+body {
+    background-color: var(--dark-blue-bg-color);
+}
+
+#card {
+    background-color: var(--dark-blue-cd-color);
+    width: 250px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+#card-image {
+    width: 100%;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+#div-image {
+    
+    cursor: pointer;
+}
+
+#div-image i {
+    content: url(images/icon-view.svg);
+    display: none;
+    position: absolute;
+    top: 20px;
+    width: 50px;
+    height: 50px;
+    padding: 100px;
+    border-radius: 7px;
+    background-color: var(--cyan-color-alpha);
+}
+
+#div-image:hover i {
+    display: block;
+}
+
+#card-image:hover {
+    content: "asdasdasd    asdsad";
+ }
+
+#card > h2 {
+    margin: 15px 0;
+    color: var(--white-color);
+    text-shadow: 0 1px 2px black;
+    font-weight: 600;
+}
+
+#card > h2:hover {
+    color: var(--cyan-color);
+    cursor: pointer;
+    text-shadow: 0 0 2px var(--cyan-color);
+}
+
+#card > p {
+    margin: 15px 0;
+    color: var(--soft-blue-color);
+    font-size: 0.8rem;
+    line-height: 1.2rem;
+}
+
+#card-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.info-eth {
+    color: var(--cyan-color);
+    font-weight: 600;
+    font-size: 0.7rem;
+    text-shadow: 0 0 1px var(--cyan-color);
+}
+
+.info-eth::before {
+    content: url(images/icon-ethereum.svg);
+    margin-right: 5px;
+    position: relative;
+    top: 4px;
+}
+
+.info-days {
+    color: var(--soft-blue-color);
+    font-size: 0.8rem;
+}
+
+.info-days::before {
+    content: url(images/icon-clock.svg);
+    margin-right: 5px;
+    position: relative;
+    top: 3px;
+}
+
+#author {
+    display: flex;
+    align-items: center;
+    border-top: 1px groove var(--soft-blue-color);
+    padding: 13px 0 5px 0;
+}
+
+#author-avatar {
+    width: 25px;
+    border-radius: 50%;   
+    border: 1px solid var(--white-color);
+}
+
+#author-desc {
+    margin-left: 15px;
+    font-weight: 400;
+    font-size: 0.8rem;
+    color: var(--soft-blue-color);
+}
+
+#author-desc a {
+    font-size: inherit;
+    text-decoration: none;
+    color: var(--white-color);
+}
+
+#author-desc a:hover {
+    color: var(--cyan-color);
+    cursor: pointer;
+    text-shadow: 0 0 1px var(--cyan-color);
+}
