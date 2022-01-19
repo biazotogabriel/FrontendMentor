@@ -23,7 +23,7 @@ body {
     background-color: var(--pale-blue);
     background-image: url(images/pattern-background-desktop.svg);
     background-repeat: no-repeat;
-    background-position: bottom;   
+    background-position: top;   
     text-align: center;
 }
 
