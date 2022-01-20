@@ -1,0 +1,176 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&display=swap');
+
+/*- Mobile: 375px
+- Desktop: 1440px*/
+
+:root {
+    --font-lexend: 'Lexend Deca', sans-serif;
+    --font-big-shoulders: 'Big Shoulders Display', cursive;
+    
+    --bright-orange: hsl(31, 77%, 52%);
+    --dark-cyan: hsl(184, 100%, 22%);
+    --very-dark-cyan: hsl(179, 100%, 13%);
+    --transparent-white: hsla(0, 0%, 100%, 0.75); /* (paragraphs)*/
+    --very-light-gray: hsl(0, 0%, 95%); /*(background, headings, buttons)*/ 
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--very-light-gray);
+    font-family: var(--font-lexend);
+    font-size: 0.9em;
+}
+
+main {
+    display: flex;
+    max-width: 920px;
+    border-radius: 8px;
+    margin: 20px;
+}
+
+section {
+    padding: 50px; 
+    transition: transform 500ms, border-radius 500ms;
+}
+
+section:nth-child(1) {
+    position: relative;
+    background-color: var(--bright-orange);
+    border-radius: 8px 0 0 8px;
+    animation: 1s ease-out card-one-animation;
+}
+
+@keyframes card-one-animation {
+    from {
+        left: -50vw;
+    }
+    to {
+        left: 0px;
+    }
+}
+
+section:nth-child(2) {
+    background-color: var(--dark-cyan);
+    animation: 1s ease-out card-two-animation;
+}
+
+@keyframes card-two-animation {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+section:nth-child(3) {
+    background-color: var(--very-dark-cyan);
+    border-radius: 0 8px 8px 0;
+    animation: 1s ease-out card-three-animation;
+}
+
+@keyframes card-three-animation {
+    from {
+        position: relative;
+        left: +100vw;
+        transform: scale(5);
+    }
+    to {
+        position: relative;
+        left: 0px;
+        transform: scale(1);
+    }
+}
+
+section:hover {
+    transform: translateY(-8px);
+    border-radius: 8px;
+    box-shadow: 0 40px 100px -40px rgba(0, 0, 0, 0.4);
+}
+
+img {
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-family: var(--font-big-shoulders);
+    color: var(--very-light-gray);
+    text-transform: uppercase;
+    font-size: 3em;
+    margin-bottom: 30px;
+}
+
+p {
+    color: var(--transparent-white);
+    line-height: 1.8em;
+    margin-bottom: 90px;
+}
+
+section a {
+    padding: 10px 28px;
+    border-radius: 20px;
+    border: 2px solid var(--very-light-gray);
+    text-decoration: none;
+    background-color: white;
+    transition: background 300ms
+}
+
+section:nth-child(1) a {
+    color: var(--bright-orange);
+}
+
+section:nth-child(2) a {
+    color: var(--dark-cyan);
+}
+
+section:nth-child(3) a {
+    color: var(--very-dark-cyan);
+}
+
+section a:hover {
+    color: var(--very-light-gray);
+    background: none;
+}
+
+@media (max-width: 760px) {
+    body {
+        overflow: auto;
+        height: auto;
+    }
+    main {
+        flex-direction: column;
+        justify-content: flex-start;
+        overflow: hidden;
+    }
+    p { 
+        margin-bottom: 40px;
+    }
+    section:nth-child(1) {
+        animation: none;
+        border-radius: 0px;
+    }
+    section:nth-child(2) {
+        animation: none;
+        border-radius: 0px;
+    }
+    section:nth-child(3) {
+        animation: none;
+        border-radius: 0px;
+    }
+    section:hover {
+        transform: none;
+        border-radius: 0px;
+        box-shadow: none;
+    }
+}
