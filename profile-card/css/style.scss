@@ -1,0 +1,66 @@
+//- Mobile: 375px
+//- Desktop: 1440px
+@charset 'UTF-8';
+@import 'variables'; //importa modulos
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    @include kumbh400()
+}
+
+body {
+    font-size: 18px;
+    background-color: $darkCyan;
+    background-image: url('../images/bg-pattern-top.svg'),
+                      url('../images/bg-pattern-bottom.svg');
+    background-attachment: fixed;
+    background-origin: 20px;
+    background-repeat: no-repeat;
+    background-position: calc(50% - 450px) calc(50% - 300px),
+                         calc(50% + 450px) calc(50% + 350px);
+    background-size: 800px 800px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    main {
+        background-image: url('../images/bg-pattern-card.svg');
+        width: 350px;
+        border-radius: 10px;
+        background-color: white;
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            margin-top: 150px;
+            box-shadow: 0 -1px 3px -1px rgba(0, 0, 0, 0.4);
+            picture {
+                height: 100px;
+                width: 100px;
+                img {
+                    position: relative;
+                    top: -50px;
+                    border-radius: 50%;
+                }
+                &::after {
+                    content: '';
+                    position: relative;
+                    display: block;
+                    height: 100px;
+                    width: 100px;
+                    background-color: white;
+                    border-radius: 50%;
+                    box-shadow: 0 0 0 4px white,
+                                0 0 5px 4px rgba(0, 0, 0, 0.4);
+                    top: -160px;
+                    z-index: 1;
+                }
+            }
+        }
+    }
+}

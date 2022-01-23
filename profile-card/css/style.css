@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Kumbh Sans", sans-serif;
+  font-weight: 400;
+}
+
+body {
+  font-size: 18px;
+  background-color: #19a2ae;
+  background-image: url("../images/bg-pattern-top.svg"), url("../images/bg-pattern-bottom.svg");
+  background-attachment: fixed;
+  background-origin: 20px;
+  background-repeat: no-repeat;
+  background-position: calc(50% - 450px) calc(50% - 300px), calc(50% + 450px) calc(50% + 350px);
+  background-size: 800px 800px;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body main {
+  background-image: url("../images/bg-pattern-card.svg");
+  width: 350px;
+  border-radius: 10px;
+  background-color: white;
+}
+
+body main .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: white;
+  margin-top: 150px;
+  -webkit-box-shadow: 0 -1px 3px -1px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 -1px 3px -1px rgba(0, 0, 0, 0.4);
+}
+
+body main .container picture {
+  height: 100px;
+  width: 100px;
+}
+
+body main .container picture img {
+  position: relative;
+  top: -50px;
+  border-radius: 50%;
+}
+
+body main .container picture::after {
+  content: '';
+  position: relative;
+  display: block;
+  height: 100px;
+  width: 100px;
+  background-color: white;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 0 0 4px white, 0 0 5px 4px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 0 0 4px white, 0 0 5px 4px rgba(0, 0, 0, 0.4);
+  top: -160px;
+  z-index: 1;
+}
+/*# sourceMappingURL=style.css.map */
