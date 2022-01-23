@@ -9,15 +9,6 @@
 }
 
 body {
-  font-size: 18px;
-  background-color: #19a2ae;
-  background-image: url("../images/bg-pattern-top.svg"), url("../images/bg-pattern-bottom.svg");
-  background-attachment: fixed;
-  background-origin: 20px;
-  background-repeat: no-repeat;
-  background-position: calc(50% - 450px) calc(50% - 300px), calc(50% + 450px) calc(50% + 350px);
-  background-size: 800px 800px;
-  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -27,57 +18,181 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100vh;
+  background-color: #19a2ae;
+  background-image: url("../images/bg-pattern-top.svg"), url("../images/bg-pattern-bottom.svg");
+  background-repeat: no-repeat;
+  background-size: 800px 800px;
+  background-position: calc(50% - 450px) calc(50% - 300px), calc(50% + 450px) calc(50% + 350px);
+  font-size: 18px;
 }
 
 body main {
+  overflow: hidden;
+  min-width: 250px;
+  width: 88%;
+  max-width: 350px;
+  height: 380px;
+  background-color: #19a2ae;
   background-image: url("../images/bg-pattern-card.svg");
-  width: 350px;
-  border-radius: 10px;
-  background-color: white;
+  border-radius: 15px;
+  -webkit-box-shadow: 0 0 50px -20px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 0 50px -20px rgba(0, 0, 0, 0.4);
+  -webkit-animation: container-oppacity 1s both 500ms;
+          animation: container-oppacity 1s both 500ms;
+  opacity: 0;
+}
+
+@-webkit-keyframes container-oppacity {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes container-oppacity {
+  to {
+    opacity: 1;
+  }
 }
 
 body main .container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: white;
-  margin-top: 150px;
-  -webkit-box-shadow: 0 -1px 3px -1px rgba(0, 0, 0, 0.4);
-          box-shadow: 0 -1px 3px -1px rgba(0, 0, 0, 0.4);
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  position: relative;
+  top: 350px;
+  -webkit-animation: up-card-animation 1s both 500ms;
+          animation: up-card-animation 1s both 500ms;
+}
+
+@-webkit-keyframes up-card-animation {
+  to {
+    top: 0px;
+  }
+}
+
+@keyframes up-card-animation {
+  to {
+    top: 0px;
+  }
 }
 
 body main .container picture {
-  height: 100px;
-  width: 100px;
-}
-
-body main .container picture img {
-  position: relative;
-  top: -50px;
-  border-radius: 50%;
-}
-
-body main .container picture::after {
-  content: '';
-  position: relative;
   display: block;
   height: 100px;
   width: 100px;
-  background-color: white;
+  position: relative;
+  top: 90px;
+}
+
+body main .container picture img {
+  display: block;
   border-radius: 50%;
-  -webkit-box-shadow: 0 0 0 4px white, 0 0 5px 4px rgba(0, 0, 0, 0.4);
-          box-shadow: 0 0 0 4px white, 0 0 5px 4px rgba(0, 0, 0, 0.4);
-  top: -160px;
-  z-index: 1;
+  border: 4px solid white;
+}
+
+body main .container .info-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: white;
+  margin-top: 40px;
+  width: 100%;
+  -webkit-box-shadow: 0 -1px 3px -1px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 -1px 3px -1px rgba(0, 0, 0, 0.4);
+  padding-top: 75px;
+}
+
+body main .container .info-container .name {
+  font-family: "Kumbh Sans", sans-serif;
+  font-weight: 700;
+  color: #2d3248;
+  margin-right: 5px;
+}
+
+body main .container .info-container .age {
+  color: #6a6f81;
+}
+
+body main .container .info-container .city {
+  margin-top: 10px;
+  color: #6a6f81;
+  font-size: 0.8em;
+}
+
+body main .container .info-container .stats-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  margin-top: 25px;
+  padding: 25px 0;
+  width: 100%;
+  border-top: 1px solid rgba(150, 150, 150, 0.199);
+}
+
+body main .container .info-container .stats-container .stat {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body main .container .info-container .stats-container .stat .stats-value {
+  font-family: "Kumbh Sans", sans-serif;
+  font-weight: 700;
+  color: #2d3248;
+}
+
+body main .container .info-container .stats-container .stat .stats-desc {
+  font-size: 0.6em;
+  color: #969696;
 }
 /*# sourceMappingURL=style.css.map */

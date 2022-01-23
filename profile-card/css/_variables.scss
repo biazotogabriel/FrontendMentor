@@ -1,11 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
 
-@mixin kumbh400() {
+@mixin flex() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+@mixin fontKumbh400() {
     font-family: "Kumbh Sans", sans-serif;
     font-weight: 400;
 }
 
-@mixin kumbh700() {
+@mixin fontKumbh700() {
     font-family: "Kumbh Sans", sans-serif;
     font-weight: 700;
 }

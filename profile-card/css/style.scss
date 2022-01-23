@@ -7,58 +7,109 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    @include kumbh400()
+    @include fontKumbh400()
 }
 
 body {
-    font-size: 18px;
+    @include flex();
+    height: 100vh;
     background-color: $darkCyan;
     background-image: url('../images/bg-pattern-top.svg'),
                       url('../images/bg-pattern-bottom.svg');
-    background-attachment: fixed;
-    background-origin: 20px;
     background-repeat: no-repeat;
+    background-size: 800px 800px;
     background-position: calc(50% - 450px) calc(50% - 300px),
                          calc(50% + 450px) calc(50% + 350px);
-    background-size: 800px 800px;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    font-size: 18px;
+
     main {
+        overflow: hidden;
+        min-width: 250px;
+        width: 88%;
+        max-width: 350px;
+        height: 380px;
+        background-color: $darkCyan;
         background-image: url('../images/bg-pattern-card.svg');
-        width: 350px;
-        border-radius: 10px;
-        background-color: white;
-        
-        .container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-color: white;
-            margin-top: 150px;
-            box-shadow: 0 -1px 3px -1px rgba(0, 0, 0, 0.4);
+        border-radius: 15px;
+        box-shadow: 0 0 50px -20px rgba(0, 0, 0, 0.4);
+        animation: container-oppacity 1s both 500ms;
+        opacity: 0;
+
+        @keyframes container-oppacity {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .container{
+            @include flex();
+            width: 100%;
+            position: relative;
+            top: 350px;
+            animation: up-card-animation 1s both 500ms;
+
+            @keyframes up-card-animation {
+                to {
+                    top: 0px
+                }
+            }
+
             picture {
+                display: block;
                 height: 100px;
                 width: 100px;
+                position: relative;
+                top: 90px;
                 img {
-                    position: relative;
-                    top: -50px;
-                    border-radius: 50%;
-                }
-                &::after {
-                    content: '';
-                    position: relative;
                     display: block;
-                    height: 100px;
-                    width: 100px;
-                    background-color: white;
                     border-radius: 50%;
-                    box-shadow: 0 0 0 4px white,
-                                0 0 5px 4px rgba(0, 0, 0, 0.4);
-                    top: -160px;
-                    z-index: 1;
+                    border: 4px solid white;
+                }
+            }
+            
+            .info-container {
+                @include flex();
+                background-color: white;
+                margin-top: 40px;
+                width: 100%;
+                box-shadow: 0 -1px 3px -1px rgba(0, 0, 0, 0.4);
+                padding-top: 75px;
+
+                .name {
+                    @include fontKumbh700;
+                    color: $veryDarkDesaturatedBlue;
+                    margin-right: 5px;
+                }
+                .age {
+                    color: $darkGrayishBlue;
+                }
+                .city {
+                    margin-top: 10px;
+                    color: $darkGrayishBlue;
+                    font-size: 0.8em;
+                }
+                .stats-container {
+                    @include flex();
+                    flex-direction: row;
+                    justify-content: space-evenly;
+                    margin-top: 25px;
+                    padding: 25px 0;
+                    width: 100%;
+                    border-top: 1px solid hsla(0, 0%, 59%, 0.199);
+
+                    .stat {
+                        @include flex();
+
+                        .stats-value {
+                            @include fontKumbh700();
+                            color: $veryDarkDesaturatedBlue;
+                        }
+
+                        .stats-desc {
+                            font-size: 0.6em;
+                            color: $darkGray;
+                        }
+                    }
                 }
             }
         }
