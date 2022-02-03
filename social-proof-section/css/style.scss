@@ -1,0 +1,245 @@
+@import 'variables';
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    font-size: 15px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../images/bg-pattern-top-desktop.svg),
+                      url(../images/bg-pattern-bottom-desktop.svg);
+    background-repeat: no-repeat;
+    background-position: calc(50% - 500px) calc(50% - 200px),
+                         calc(50% + 300px) calc(100% + 50px);    
+}
+
+main{
+    display: grid;
+    grid-template-columns: 400px auto;
+    grid-template-rows: auto auto;
+    grid-template-areas: "title rates"
+                         "reviews reviews";
+    width: 90%;
+    max-width: 1100px;
+
+    .title {
+        grid-area: title;
+
+        h1 {
+            @include spartan-700;
+            font-size: 3em;
+            color: $very-dark-magenta;
+            margin-bottom: 15px;
+            line-height: 1em;
+        }
+
+        p {
+            @include spartan-500;
+            font-size: 0.9em;
+            line-height: 1.6em;
+            color: $dark-grayish-magenta;
+        }
+    }
+    .rates {
+        grid-area: rates;
+        display: flex;
+        flex-direction: column;
+        row-gap: 15px;
+        
+        div {
+            display: grid;
+            grid-template-areas: 'rate .';
+            justify-content: right;
+            grid-template-rows: 1fr;
+            &:nth-child(1) {
+                grid-template-columns: 400px minmax(0, 100px);
+            }
+            &:nth-child(2) {
+                grid-template-columns: 400px minmax(0, 50px);
+            }
+            &:nth-child(3) {
+                grid-template-columns: 400px minmax(0, 0);
+            }            
+
+            span {
+                @include spartan-700;
+                grid-area: rate;
+                display: flex;
+                align-items: center;
+                font-size: 0.8em;
+                color: $very-dark-magenta;
+                background-color: $light-grayish-magenta;
+                border-radius: 10px;
+                padding: 18px;
+
+                &::before {
+                    content: url('../images/icon-star.svg')" "url('../images/icon-star.svg')" "url('../images/icon-star.svg')" "url('../images/icon-star.svg')" "url('../images/icon-star.svg');
+                    word-spacing: 5px;
+                    margin-right: 30px;
+                }
+            }
+        }
+    }
+    .reviews {
+        margin-top: 40px;
+        grid-area: reviews;
+        display: flex;
+        column-gap: 30px;
+        align-items: flex-start;
+        perspective: 1000px;
+
+        .review {
+            position: relative;
+            background-color: $very-dark-magenta;
+            border-radius: 8px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            row-gap: 25px;
+            box-shadow: 0 20px 20px -10px rgba(0, 0, 0, 0.2);
+            transition: transform 1s ease;
+
+            &:hover {                
+                transform: translateY(-10px);
+            }
+
+            &:nth-child(2) {
+                margin-top: 20px;
+            }
+
+            &:nth-child(3) {
+                margin-top: 40px;
+            }
+
+            .review-person {
+                display: flex;
+                flex-direction: row;
+                column-gap: 25px;
+                align-items: center;
+
+                img {
+                    width: 40px;
+                    border-radius: 50%;
+                }
+    
+                .review-person-title {
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 5px;
+
+                    .review-person-name {
+                        @include spartan-700;
+                        color: $white;
+                        font-size: 0.8em;
+                    }
+
+                    .review-person-status {
+                        @include spartan-500;
+                        color: $light-grayish-magenta;
+                        font-size: 0.8em;
+                    }
+                }
+
+            }
+
+            p {
+                @include spartan-400;
+                font-size: 0.8em;
+                line-height: 1.8em;
+                color: $white;
+                
+            }
+
+        }
+
+
+    }
+}
+
+@media (max-width: 900px) {
+    body {
+        background-image: url(../images/bg-pattern-top-desktop.svg);
+        background-position: top left;
+        align-items: flex-start;
+        overflow: scroll;
+    }
+    main {
+        display: flex;
+        flex-direction: column;
+
+        .title {
+            text-align: center;
+
+            h1 {
+                margin-top: 50px;
+                font-size: 2em;
+            }
+
+            p {
+                margin-bottom: 40px;
+            }
+        }
+
+        .rates {
+            flex-direction: column;
+            text-align: center;
+
+            div {
+                display: block;
+
+                span {
+                    display: flex;
+                    flex-direction: column;
+
+                    &:before {
+                        margin-right: 0;
+                        margin-bottom: 5px;
+                    }
+                }
+            }
+
+        }
+        .reviews {
+            flex-direction: column;
+            margin-bottom: 30px;
+            row-gap: 20px;
+
+            .review:nth-child(1n) {
+                margin-top: 0;
+            }
+        }
+    }
+}
+
+@media (min-width: 900px) {
+    .rates {
+        div {
+            &:nth-child(1) {
+                transform: translateX(500px);
+                animation: animation-initial 800ms ease-out both;// direction fill-mode; 
+            }
+            &:nth-child(2) {
+                transform: translateX(500px);
+                animation: animation-initial 600ms ease-out 200ms both;// direction fill-mode; 
+            }
+            &:nth-child(3) {
+                transform: translateX(500px);
+                animation: animation-initial 400ms ease-out 400ms both;// direction fill-mode; 
+            }            
+        }
+    }
+}
+
+@keyframes animation-initial {
+    to {
+        transform: translateX(0);
+    }
+}
