@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { Container } from './styled'
 import CardLinks from '../CardLinks'
 
 export default function Card({ card }) {
+  useEffect(() => {})
   return (
     <Container>
       <div

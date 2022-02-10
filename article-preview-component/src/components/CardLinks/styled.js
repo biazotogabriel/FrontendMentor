@@ -10,22 +10,38 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   width: 0;
-  background-color: ${colors.lightGrayishBlue};
-  color: ${colors.desaturatedDarkBlue};
-  border-radius: 50%;
-  width: 34px;
-  height: 34px;
   cursor: pointer;
 
   &:hover {
     filter: brightness(0.9);
   }
 
-  &:focus {
+  &:focus .share{
     outline: none;
-    background-color: ${colors.desaturatedDarkBlue};
+    background-color: ${colors.veryDarkGrayishBlue};
     color: white;
     filter: brightness(1);
+  }
+
+  .share {
+    transition: all 300ms;
+    width: 34px;
+    height: 34px;
+    padding: 5px;
+    background-color: ${colors.lightGrayishBlue};
+    color: ${colors.desaturatedDarkBlue};
+    border-radius: 50%;
+
+  }
+  @media (max-width: 700px) {
+    &:focus .share{
+      background-color: ${colors.veryDarkGrayishBlue};
+      color: white;
+    }
+    .share {
+      z-index: 1;
+      &:focus {
+    }
   }
 `
 
@@ -45,6 +61,27 @@ export const Links = styled.div`
   box-shadow: 0 5px 10px -3px rgba(0, 0, 0, 0.5);
   transform: translate(-50%, -85px);
 
+  @keyframes in {
+    from {
+      display; none;
+      opacity: 0;
+    }
+    to {
+      display; flex;
+      opacity: 1;
+    }
+  }
+  @keyframes out {
+    from {
+      display; flex;
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+      display; none;
+    }
+  }
+
   & > .link {
     transition: all 300ms;
     cursor: pointer;
@@ -58,12 +95,21 @@ export const Links = styled.div`
 
   & > .rect {
     content: '';
-    z-index: 1;
+    z-index: 2;
     position: absolute;
     left: 50%;
-    transform: translate(8px, 28px) rotate(45deg);
     width: 20px;
     height: 20px;
     background-color: ${colors.veryDarkGrayishBlue};
+  }
+  @media (max-width: 700px) {
+    width: calc(100vw - 26px);
+    transform: translate(calc(-100% + 48px), 0);
+    box-shadow: none;
+    border-radius: 0;
+    height: 70px;
+    .rect {
+      display: none;
+    }
   }
 `

@@ -10,32 +10,48 @@ import PropTypes from 'prop-types'
 import { Container, Links } from './styled'
 
 export default function CardLinks({ links }) {
-  const [showLinks, setShowLinks] = useState(0)
-  const handleFocus = () => {
-    setShowLinks((state) => (state === 0 ? 1 : 0))
-  }
+  const [showLinks, setShowLinks] = useState('none')
+  // const handleFocus = () => {
+
+  // }
 
   const linksRef = useRef()
   const [fixXLinks, setfixXLinks] = useState(0)
 
   function adjustPositionXLinks() {
     const positionRight = linksRef.current.getBoundingClientRect().right + 25
-    if (positionRight > window.innerWidth && positionRight > 0 && !fixXLinks)
+    if (
+      positionRight > window.innerWidth &&
+      positionRight > 0 &&
+      !fixXLinks &&
+      window.innerWidth > 700
+    )
       setfixXLinks(window.innerWidth - positionRight)
+    if (fixXLinks && window.innerWidth <= 700) setfixXLinks(0)
   }
 
   useEffect(() => {
     adjustPositionXLinks()
   })
 
+  const handleFocus = () => {
+    linksRef.current.style.animation = 'in 500ms both'
+    setShowLinks('flex')
+  }
+
+  const handleBlur = () => {
+    linksRef.current.style.animation = 'out 500ms both'
+    setShowLinks('none')
+  }
+
   return (
-    <Container tabIndex={0} onFocus={handleFocus} onBlur={handleFocus}>
+    <Container tabIndex={0} onFocus={handleFocus} onBlur={handleBlur}>
       <RiShareForwardFill size={20} className='share' />
 
       <Links
         ref={linksRef}
         style={{
-          opacity: showLinks,
+          display: showLinks,
           left: `${fixXLinks}px`,
         }}
       >
@@ -54,14 +70,14 @@ export default function CardLinks({ links }) {
         <div
           className='rect'
           style={{
-            transform: `translate(${-fixXLinks + 8}px, 28px) rotate(45deg)`,
+            transform: `translate(${-fixXLinks - 10}px, 28px) rotate(45deg)`,
           }}
         />
       </Links>
     </Container>
   )
 }
-//
+
 CardLinks.propTypes = {
   links: PropTypes.instanceOf(Array).isRequired,
 }

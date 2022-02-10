@@ -15,8 +15,11 @@ export default createGlobalStyle`
 }
 
 body {
+  display: flex;
+  justify-content: center;
   background-color: ${colors.lightGrayishBlue};
-  height: 100%;
+  height: 100vh;
+  width: 100%;
   font-family: ${fonts.manrope};
 
 }

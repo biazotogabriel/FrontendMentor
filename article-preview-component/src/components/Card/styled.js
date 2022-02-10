@@ -2,18 +2,14 @@ import styled from 'styled-components'
 import * as colors from '../../config/colors'
 
 export const Container = styled.div`
-  margin: 20px 0;
+  margin: 20px;
   display: flex;
-  align-items: stretch;
-  width: 735px;
   border-radius: 10px;
-  height: 100%;
   box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.2);
 
   .image-container {
     border-radius: 10px 0 0 10px;
-    min-width: 280px;
-    width: 280px;
+    min-width: 38%;
     background-size: auto 100%;
     background-repeat: no-repeat;
     background-position: center left;
@@ -58,13 +54,36 @@ export const Container = styled.div`
         .name {
           color: ${colors.veryDarkGrayishBlue};
           font-weight: 700;
-          font-size: 1rem;
+          font-size: 1.1rem;
         }
         .date {
           color: ${colors.grayishBlue};
           font-weight: 500;
           font-size: 1rem;
         }
+      }
+    }
+  }
+  @media (max-width: 700px) {
+    flex-direction: column;
+    .image-container {
+      min-height: 230px;
+      background-size: cover;
+      background-position: top center;
+      border-radius: 10px 10px 0 0;
+    }
+    .info-container {
+      overflow: hidden;
+      padding: 35px;
+      padding-bottom: 15px;
+      border-radius: 0 0 10px 10px;
+
+      & > h2 {
+        font-size: 1.3rem;
+      }
+
+      & > p {
+        margin-bottom: 30px;
       }
     }
   }
