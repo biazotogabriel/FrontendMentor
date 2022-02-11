@@ -5,8 +5,7 @@ export const Container = styled.div`
   margin: 20px;
   display: flex;
   border-radius: 10px;
-  box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.2);
-
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   .image-container {
     border-radius: 10px 0 0 10px;
     min-width: 38%;
